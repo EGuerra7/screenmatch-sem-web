@@ -27,6 +27,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&season=1&episode=2&apikey=74170ce1");
 		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 		System.out.println(dadosEpisodio);
+		System.out.println("hello");
 
 	}
 
