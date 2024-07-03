@@ -4,10 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.guerra.screenmatch.model.DadosEpisodio;
-import br.com.guerra.screenmatch.model.DadosSerie;
-import br.com.guerra.screenmatch.service.ConsumoApi;
-import br.com.guerra.screenmatch.service.ConverteDados;
+import br.com.guerra.screenmatch.principal.Principal;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
@@ -18,17 +15,8 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=74170ce1");
-		System.out.println(json);
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
-		json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&season=1&episode=2&apikey=74170ce1");
-		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
-		System.out.println(dadosEpisodio);
-		System.out.println("hello");
-
+		Principal principal = new Principal();
+		principal.exibeMenu();
 	}
 
 }
